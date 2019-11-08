@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Butcherman&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <title>Halloween</title>
+    <!-- solo para pc-->
+    <style>
+
+        body{background-color: black;}
+
+        #wrapper{position: relative;/* el wrapper se mueve para centrarse*/
+            background-image: url(casaembrujada.jpg);
+            width: 1200px;
+            height: 900px;
+            margin: auto;
+            border-radius: 100px;
+            box-shadow:rgb(0, 153, 255) 20px 25px 20px 25px;
+            background-repeat: no-repeat;
+            background-size: cover;}
+
+        h1{position:absolute;/*lo q va dentro se mueve con el*/
+            font-family: 'Butcherman', cursive;
+            left: 50px;
+            top: 10px;}
+        #p1{position: absolute;
+            font-family: 'Butcherman', cursive;
+            color: rgb(179, 110, 6);
+            top:640px;
+            left:270px;
+            font-size: 100%;}
+        #pumpkin{position: absolute;
+                top: 640px;
+                left:460px;
+                width: 50px;
+                height: 50px;
+                /*border: 1px white solid;*/
+                }
+        #stone{position: absolute;
+                top: 400px;
+                left: 150px;
+                width: 80px;
+                height: 120px;
+                /*border: 1px white solid;*/
+                }
+        #p2{position: absolute;
+            font-family: 'Butcherman', cursive;
+            color: rgb(179, 110, 6);
+            top:500px;
+            left:150px}
+        #skeleton{position: absolute;
+                top: 420px;
+                left: 60px;
+                visibility: hidden;
+                }
+        #wolf{position: absolute;
+                top:640px;
+                left:520px;
+                visibility: hidden;}
+        
+
+        </style>
+
+    <script>
+        function mostrar(id){
+            document.getElementById(id).style.visibility="visible";
+        }
+        function ocultar(id){
+            document.getElementById(id).style.visibility="hidden";
+        }
+        function sonar(id){
+            document.getElementById(id).play();
+        }
+        function parar(id){
+            document.getElementById(id).pause();
+        }
+    
+    </script>
+
+</head>
+<body>
+    <audio id="haunting">
+        <source src="sonidos/haunting.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="wolf2">
+        <source src="sonidos/wolf2.mp3" type="audio/mpeg">
+    </audio>
+    <div id="wrapper">
+        <h1> Scary Halloween Party</h1>
+        <p id="p1">Dont click pumpkin!!!</p>
+        <p id="p2">Dont touch stone!!!</p>
+        <div id="pumpkin" onclick="mostrar('wolf');sonar('wolf2')"></div>
+        <div id="stone" onmouseover="mostrar('skeleton');sonar('haunting')" onmouseout="ocultar('skeleton');parar('haunting')"></div>
+        <img id="skeleton" src="imagenes/eskeleti.gif" height="100">
+        <img id="wolf" src="imagenes/lobo.gif" height="100" onclick="ocultar('wolf');parar('wolf2')">
+
+    </div>
+</body>
+</html>
